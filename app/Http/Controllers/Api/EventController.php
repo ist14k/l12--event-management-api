@@ -55,7 +55,7 @@ class EventController extends Controller
             'end_time' => 'required|date|after:start_time',
         ]);
 
-        $event = Event::create(array_merge($validated, ['user_id' => 1]));
+        $event = Event::create(array_merge($validated, ['user_id' => $request->user()->id]));
 
         return new EventResource($event);
     }
