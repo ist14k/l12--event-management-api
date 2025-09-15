@@ -29,6 +29,7 @@ class EventController extends Controller
         return EventResource::collection($events);
     }
 
+    // TODO: Move this to a dedicated service or helper class [trait] if it grows more complex
     private function includeRelations(string $relations): array|null
     {
         $allowedRelations = ['user', 'attendees', 'attendees.user'];
